@@ -1,0 +1,22 @@
+server:
+  port: 80
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  redis:
+    host: 172.17.161.144
+    port: 6379
+    timeout: 6000
+    database: 0
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: 3
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/test_cache?characterEncoding=utf-8&useSSL=true&serverTimezone=GMT
+    username: root
+    password: 123456
+    name: test_cache
+    driver-class-name: com.mysql.jdbc.Driver
+  cache:
+    type: redis
