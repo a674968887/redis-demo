@@ -35,7 +35,7 @@ import java.util.Set;
  * -------------------------------------------<br>
  * <br>
  */
-@ConditionalOnProperty(value = "spring.cache.type",havingValue = "redis")
+//@ConditionalOnProperty(value = "spring.cache.type",havingValue = "redis")
 @Configuration
 @EnableCaching
 public class RedisTemplateCustom {
