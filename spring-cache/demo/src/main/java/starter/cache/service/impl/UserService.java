@@ -1,12 +1,11 @@
-package redis.cache.user.service.impl;
+package starter.cache.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.*;
 import org.springframework.stereotype.Service;
-import redis.cache.user.custom.annotation.RedisCacheCustom;
-import redis.cache.user.service.IUserService;
-import redis.cache.user.dao.IUserDao;
-import redis.cache.user.pojo.User;
+import starter.cache.service.IUserService;
+import starter.cache.dao.IUserDao;
+import starter.cache.pojo.User;
 
 import java.util.List;
 

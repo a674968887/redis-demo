@@ -12,7 +12,7 @@ spring:
         max-active: 8
         max-wait: 3
     timeout: 2000ms
-  #这里是模拟集群的声明方式     格式 IP:端口,IP:端口 ...
+  #这里是模拟集群的声明方式
   #    cluster:
   #      nodes: 172.17.161.144:6379
   datasource:

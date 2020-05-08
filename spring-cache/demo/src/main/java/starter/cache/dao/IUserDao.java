@@ -1,10 +1,10 @@
 /** 
  */
 
-package redis.cache.user.dao;
+package starter.cache.dao;
 
 import org.apache.ibatis.annotations.*;
-import redis.cache.user.pojo.User;
+import starter.cache.pojo.User;
 
 import java.util.List;
 

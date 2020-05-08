@@ -1,4 +1,4 @@
-package redis.cache.user.custom.annotation;
+package starter.cache.custom.annotation;
 
 /**
  * {class description}

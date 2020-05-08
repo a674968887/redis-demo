@@ -1,6 +1,6 @@
-package redis.cache.user.service;
+package starter.cache.service;
 
-import redis.cache.user.pojo.User;
+import starter.cache.pojo.User;
 
 import java.util.List;
 

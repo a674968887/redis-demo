@@ -1,11 +1,10 @@
-package redis.cache.user.custom.annotation.utils;
+package starter.cache.custom.annotation.utils;
 
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * {class description}
@@ -22,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class RedisCacheUtils {
     /**
-     * redisTemplate redisTemplate
+     * StringRedisTemplate StringRedisTemplate
      */
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
@@ -34,6 +33,7 @@ public class RedisCacheUtils {
 
         System.out.println(RedisCacheUtils.class.getName() + "   end");
     }
+
 
 
 }

@@ -1,7 +1,6 @@
-package redis.cache.user.config.redis;
+package starter.cache.config.redis;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
@@ -60,7 +59,7 @@ public class RedisTemplateCustom {
 
         // 设置一个初始化的缓存名称set集合
         Set<String> cacheNames = new HashSet<>();
-        cacheNames.add("redis/cache/user");
+        cacheNames.add("starter/cache");
 
         // 对每个缓存名称应用不同的配置，自定义过期时间
         Map<String, RedisCacheConfiguration> configMap = new HashMap<>();

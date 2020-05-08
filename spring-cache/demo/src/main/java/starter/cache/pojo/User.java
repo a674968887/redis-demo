@@ -1,4 +1,4 @@
-package redis.cache.user.pojo;
+package starter.cache.pojo;
 
 
 import java.io.Serializable;

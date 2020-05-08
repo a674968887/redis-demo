@@ -1,12 +1,12 @@
-package redis.cache.user.controller;
+package starter.cache.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import redis.cache.user.pojo.User;
-import redis.cache.user.service.IUserService;
+import starter.cache.service.IUserService;
+import starter.cache.pojo.User;
 
 import java.util.List;
 /**

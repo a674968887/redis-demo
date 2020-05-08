@@ -1,4 +1,4 @@
-package redis.cache.user.custom.annotation.aspect;
+package starter.cache.custom.annotation.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -6,7 +6,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import redis.cache.user.custom.annotation.utils.RedisCacheUtils;
+import starter.cache.custom.annotation.utils.RedisCacheUtils;
 
 /**
  * {class description}
@@ -27,7 +27,7 @@ public class RedisCacheCustomAspect {
     @Autowired
     private RedisCacheUtils redisCacheUtils;
 
-    @Pointcut("@annotation(redis.cache.user.custom.annotation.RedisCacheCustom)")
+    @Pointcut("@annotation(starter.cache.custom.annotation.RedisCacheCustom)")
     public void setJoinPoint(){}
 
     //环绕通知:可以获取返回值

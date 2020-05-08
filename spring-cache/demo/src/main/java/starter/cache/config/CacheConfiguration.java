@@ -1,4 +1,4 @@
-package redis.cache.user.config;
+package starter.cache.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
@@ -10,7 +10,7 @@ import org.springframework.cache.interceptor.CacheResolver;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
-import redis.cache.user.config.redis.RedisTemplateCustom;
+import starter.cache.config.redis.RedisTemplateCustom;
 
 import java.lang.reflect.Method;
 import java.net.UnknownHostException;
@@ -34,7 +34,6 @@ import java.util.List;
 public class CacheConfiguration extends CachingConfigurerSupport {
     @Autowired
     private RedisConnectionFactory connectionFactory;
-
 
     /**
      * 在没有指定缓存Key的情况下，key生成策略

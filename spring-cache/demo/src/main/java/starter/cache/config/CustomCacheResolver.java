@@ -1,4 +1,4 @@
-package redis.cache.user.config;
+package starter.cache.config;
 
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
