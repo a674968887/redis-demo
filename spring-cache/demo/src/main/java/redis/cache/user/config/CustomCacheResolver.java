@@ -7,7 +7,6 @@ import org.springframework.cache.interceptor.CacheOperationInvocationContext;
 import org.springframework.cache.interceptor.CacheResolver;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.lang.Nullable;
-import org.springframework.util.Assert;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -52,6 +51,7 @@ public class CustomCacheResolver implements CacheResolver {
     /**
      * 自定义CacheResolver实现动态选择CacheManager
      * 这里的作用目前不太清晰，目前可以清晰的是配合CacheConfiguration中的cacheResolver可以指定备用的后端缓存
+     *
      * @param context
      * @return
      */
@@ -76,7 +76,6 @@ public class CustomCacheResolver implements CacheResolver {
     }
 
     /**
-     *
      * @param context
      * @return
      */

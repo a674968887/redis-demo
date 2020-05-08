@@ -30,8 +30,6 @@ public class UserService implements IUserService {
     IUserDao UserDao;
 
 
-
-
     /**
      * value：缓存位置名称，不能为空，如果使用EHCache，就是ehcache.xml中声明的cache的name
      * key：缓存的key，默认为空，既表示使用方法的参数类型及参数值作为key，支持SpEL

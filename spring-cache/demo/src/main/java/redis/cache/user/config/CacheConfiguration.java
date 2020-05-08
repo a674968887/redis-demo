@@ -2,6 +2,7 @@ package redis.cache.user.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
@@ -35,6 +36,13 @@ import java.util.List;
 public class CacheConfiguration extends CachingConfigurerSupport {
     @Autowired
     private RedisConnectionFactory connectionFactory;
+
+
+    @Override
+    public CacheManager cacheManager() {
+
+        return super.cacheManager();
+    }
 
     /**
      * 在没有指定缓存Key的情况下，key生成策略
