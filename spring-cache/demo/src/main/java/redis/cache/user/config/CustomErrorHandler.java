@@ -19,6 +19,7 @@ import org.springframework.cache.interceptor.CacheErrorHandler;
  * <br>
  */
 public class CustomErrorHandler implements CacheErrorHandler {
+
     @Override
     public void handleCacheGetError(RuntimeException e, Cache cache, Object key) {
         System.err.println(key + ":" + e.getMessage());

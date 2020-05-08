@@ -68,13 +68,18 @@ public class CacheConfiguration extends CachingConfigurerSupport {
         return new CustomErrorHandler();
     }
 
+    /**
+     * 自定义CacheResolver实现动态选择CacheManager
+     *
+     * @return
+     */
     @Override
     public CacheResolver cacheResolver() {
 
         // 通过ConcurrentMap实现缓存管理器
         CacheManager concurrentMapCacheManager = new ConcurrentMapCacheManager();
 
-
+        //通过Redis实现缓存管理器
         RedisTemplateCustom redisTemplateCustom = new RedisTemplateCustom();
         CacheManager cacheManager = null;
         try {

@@ -39,7 +39,12 @@ import java.util.Set;
 @Configuration
 @EnableCaching
 public class RedisTemplateCustom {
-
+    /**
+     * 自定义redis
+     *
+     * @param redisTemplate
+     * @return
+     */
     @Bean
     public CacheManager CacheManager(RedisTemplate redisTemplate) {
         //spring cache注解序列化配置
@@ -72,7 +77,13 @@ public class RedisTemplateCustom {
         return redisCacheManager;
     }
 
-
+    /**
+     * 自定义redis模板
+     *
+     * @param redisConnectionFactory
+     * @return
+     * @throws UnknownHostException
+     */
     @Bean
     public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) throws UnknownHostException {
         // 配置redisTemplate

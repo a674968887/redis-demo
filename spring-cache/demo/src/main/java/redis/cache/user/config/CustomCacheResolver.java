@@ -49,7 +49,12 @@ public class CustomCacheResolver implements CacheResolver {
         this.cacheManagerList = cacheManagerList;
     }
 
-
+    /**
+     * 自定义CacheResolver实现动态选择CacheManager
+     * 这里的作用目前不太清晰，目前可以清晰的是配合CacheConfiguration中的cacheResolver可以指定备用的后端缓存
+     * @param context
+     * @return
+     */
     @Override
     public Collection<? extends Cache> resolveCaches(CacheOperationInvocationContext<?> context) {
         Collection<String> cacheNames = getCacheNames(context);
@@ -70,6 +75,11 @@ public class CustomCacheResolver implements CacheResolver {
         return result;
     }
 
+    /**
+     *
+     * @param context
+     * @return
+     */
     private Collection<String> getCacheNames(CacheOperationInvocationContext<?> context) {
         return context.getOperation().getCacheNames();
     }
