@@ -38,12 +38,6 @@ public class CacheConfiguration extends CachingConfigurerSupport {
     private RedisConnectionFactory connectionFactory;
 
 
-    @Override
-    public CacheManager cacheManager() {
-
-        return super.cacheManager();
-    }
-
     /**
      * 在没有指定缓存Key的情况下，key生成策略
      *
