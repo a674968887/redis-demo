@@ -1,6 +1,6 @@
-package starter.cache.service;
+package com.riil.demo.user.service;
 
-import starter.cache.pojo.User;
+import com.riil.demo.user.pojo.User;
 
 import java.util.List;
 

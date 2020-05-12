@@ -1,4 +1,4 @@
-package starter.cache.pojo;
+package com.riil.demo.user.pojo;
 
 
 import java.io.Serializable;

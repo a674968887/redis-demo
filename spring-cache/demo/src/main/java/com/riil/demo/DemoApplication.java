@@ -1,4 +1,4 @@
-package starter.cache;
+package com.riil.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 //声明扫描包的位置
-@ComponentScan(basePackages = {"starter.cache.*"})
+@ComponentScan(basePackages = {"com.riil.demo.user.*"})
 //启用缓存
 @EnableCaching
 public class DemoApplication

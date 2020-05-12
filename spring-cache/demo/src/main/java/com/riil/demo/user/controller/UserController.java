@@ -1,12 +1,12 @@
-package starter.cache.controller;
+package com.riil.demo.user.controller;
 
+import com.riil.demo.user.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import starter.cache.service.IUserService;
-import starter.cache.pojo.User;
+import com.riil.demo.user.pojo.User;
 
 import java.util.List;
 /**

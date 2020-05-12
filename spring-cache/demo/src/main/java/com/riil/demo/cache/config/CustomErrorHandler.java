@@ -1,4 +1,4 @@
-package starter.cache.config;
+package com.riil.demo.cache.config;
 
 import org.springframework.cache.Cache;
 import org.springframework.cache.interceptor.CacheErrorHandler;

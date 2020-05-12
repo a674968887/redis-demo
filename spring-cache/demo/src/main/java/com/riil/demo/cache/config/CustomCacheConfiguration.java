@@ -1,5 +1,6 @@
-package starter.cache.config;
+package com.riil.demo.cache.config;
 
+import com.riil.demo.cache.config.redis.RedisTemplateCustom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
@@ -10,7 +11,6 @@ import org.springframework.cache.interceptor.CacheResolver;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
-import starter.cache.config.redis.RedisTemplateCustom;
 
 import java.lang.reflect.Method;
 import java.net.UnknownHostException;
@@ -31,7 +31,7 @@ import java.util.List;
  */
 @Configuration
 @EnableCaching
-public class CacheConfiguration extends CachingConfigurerSupport {
+public class CustomCacheConfiguration extends CachingConfigurerSupport {
     @Autowired
     private RedisConnectionFactory connectionFactory;
 

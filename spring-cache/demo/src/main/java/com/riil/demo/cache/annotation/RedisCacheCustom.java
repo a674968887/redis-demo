@@ -1,4 +1,4 @@
-package starter.cache.custom.annotation;
+package com.riil.demo.cache.annotation;
 
 /**
  * {class description}

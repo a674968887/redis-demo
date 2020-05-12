@@ -1,10 +1,10 @@
 /** 
  */
 
-package starter.cache.dao;
+package com.riil.demo.user.dao;
 
 import org.apache.ibatis.annotations.*;
-import starter.cache.pojo.User;
+import com.riil.demo.user.pojo.User;
 
 import java.util.List;
 
