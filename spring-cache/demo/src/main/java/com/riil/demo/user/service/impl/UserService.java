@@ -36,14 +36,12 @@ public class UserService implements IUserService {
      * condition：触发条件，只有满足条件的情况才会加入缓存，默认为空，既表示全部都加入缓存，支持SpEL
      */
 //    @Cacheable( value = "user")
-//    @Cacheable(value = {"res","user","12312"})
-    @RedisCacheCustom
+    @Cacheable(value = {"user"},key = "targetClass")
+//    @RedisCacheCustom
     @Override
     public List<User> getUser() {
         return UserDao.getUser();
     }
-
-
 
     @Cacheable(key = "targetClass", value = "user")
     @Override

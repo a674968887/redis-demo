@@ -1,11 +1,8 @@
 package com.riil.demo.cache.config;
 
-import com.riil.demo.cache.config.redis.RedisTemplateCustom;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
 import org.springframework.cache.interceptor.CacheErrorHandler;
 import org.springframework.cache.interceptor.CacheResolver;
 import org.springframework.cache.interceptor.KeyGenerator;
@@ -13,9 +10,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 
 import java.lang.reflect.Method;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * {缓存通用配置模板}
@@ -75,25 +69,26 @@ public class CustomCacheConfiguration extends CachingConfigurerSupport {
     @Override
     public CacheResolver cacheResolver() {
 
-        // 通过ConcurrentMap实现缓存管理器
-        CacheManager concurrentMapCacheManager = new ConcurrentMapCacheManager();
-
-        //通过Redis实现缓存管理器
-        RedisTemplateCustom redisTemplateCustom = new RedisTemplateCustom();
-        CacheManager cacheManager = null;
-        try {
-            cacheManager = redisTemplateCustom.CacheManager(redisTemplateCustom.redisTemplate(connectionFactory));
-        } catch (UnknownHostException e) {
-            System.out.println(e);
-        }
-
-        CacheManager redisCacheManager = cacheManager;
-        List<CacheManager> list = new ArrayList<>();
-        // 优先读redis缓存
-        list.add(redisCacheManager);
-        // redis缓存读取不到该key时再读取simple缓存
-        list.add(concurrentMapCacheManager);
-        return new CustomCacheResolver(list);
+//        // 通过ConcurrentMap实现缓存管理器
+//        CacheManager concurrentMapCacheManager = new ConcurrentMapCacheManager();
+//
+//        //通过Redis实现缓存管理器
+//        RedisTemplateCustom redisTemplateCustom = new RedisTemplateCustom();
+//        CacheManager cacheManager = null;
+//        try {
+//            cacheManager = redisTemplateCustom.CacheManager(redisTemplateCustom.redisTemplate(connectionFactory));
+//        } catch (UnknownHostException e) {
+//            System.out.println(e);
+//        }
+//
+//        CacheManager redisCacheManager = cacheManager;
+//        List<CacheManager> list = new ArrayList<>();
+//        // 优先读redis缓存
+//        list.add(redisCacheManager);
+//        // redis缓存读取不到该key时再读取simple缓存
+//        list.add(concurrentMapCacheManager);
+//        return new CustomCacheResolver(list);
+return null;
     }
 
 }
