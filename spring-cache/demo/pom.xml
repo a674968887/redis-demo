@@ -20,16 +20,15 @@
 
     <dependencies>
         <!--        ehcache -->
-<!--        <dependency>-->
-<!--            <groupId>net.sf.ehcache</groupId>-->
-<!--            <artifactId>ehcache</artifactId>-->
-<!--            <version>2.10.4</version>-->
-<!--        </dependency>-->
         <dependency>
-            <groupId>org.ehcache</groupId>
+            <groupId>net.sf.ehcache</groupId>
             <artifactId>ehcache</artifactId>
-            <version>3.3.0</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.ehcache</groupId>-->
+<!--            <artifactId>ehcache</artifactId>-->
+<!--            <version>3.3.0</version>-->
+<!--        </dependency>-->
         <!--        reids starter-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

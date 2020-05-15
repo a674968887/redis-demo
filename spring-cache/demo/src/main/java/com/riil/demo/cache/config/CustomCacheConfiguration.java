@@ -88,7 +88,7 @@ public class CustomCacheConfiguration extends CachingConfigurerSupport {
 //        // redis缓存读取不到该key时再读取simple缓存
 //        list.add(concurrentMapCacheManager);
 //        return new CustomCacheResolver(list);
-return null;
+        return null;
     }
 
 }

@@ -23,5 +23,12 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
   cache:
     type: redis
-#    ehcache:
-#      config: classpath:ehcache.xml
+    ehcache:
+      config: classpath:ehcache.xml
+riil:
+  cache:
+    namespace:
+      - name: user1
+        ttl: 200
+      - name: user2
+        ttl: 1000000

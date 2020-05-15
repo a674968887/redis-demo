@@ -1,5 +1,8 @@
 package com.riil.demo.cache.config.redis;
 
+import com.riil.demo.cache.config.CacheUtils;
+import com.riil.demo.cache.config.dto.CachePropertisDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cache.CacheManager;
@@ -12,10 +15,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 
 import java.time.Duration;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * {class description}
@@ -34,10 +34,13 @@ import java.util.Set;
 @Configuration
 @EnableCaching
 public class RedisCacheConfigCustom {
+
     /**
      * 默认过期时间
      */
     private static final long S_ENTRY_TTL = 60;
+    @Autowired
+    CachePropertisDto cachePropertisDto;
 
     /**
      * 获取spring data redis 中RedisTemplate bean 使用RedisTemplate中定义的序列化
@@ -71,20 +74,18 @@ public class RedisCacheConfigCustom {
      */
     @Bean
     protected CacheManager cacheManager(@Qualifier("customRedisTemplate") final RedisTemplate redisTemplate,
-                              @Qualifier("customRedisCacheConfiguration") final RedisCacheConfiguration redisCacheConfiguration) {
+                                        @Qualifier("customRedisCacheConfiguration") final RedisCacheConfiguration redisCacheConfiguration) {
 
         // 设置一个初始化的缓存名称set集合
-        Set<String> cacheNames = new HashSet<>();
-        cacheNames.add("com/riil/demo/user/cache");
+//        Set<String> cacheNames = new HashSet<>();
+//        cacheNames.add("default");
         // 对每个缓存名称应用不同的配置，自定义过期时间
-        Map<String, RedisCacheConfiguration> configMap = new HashMap<>();
-        configMap.put("user", redisCacheConfiguration.entryTtl(Duration.ofSeconds(120)));
-
+        Map<String, RedisCacheConfiguration> configMap = CacheUtils.redisNamespace(redisCacheConfiguration, cachePropertisDto);
         RedisCacheManager redisCacheManager = RedisCacheManager.builder(redisTemplate.getConnectionFactory())
                 .cacheDefaults(redisCacheConfiguration)
                 .transactionAware()
                 // 注意这两句的调用顺序，要先调用该方法设置初始化的缓存名，再初始化相关的配置
-                .initialCacheNames(cacheNames)
+//                .initialCacheNames(cacheNames)
                 .withInitialCacheConfigurations(configMap)
                 .build();
         System.out.println("bean  redisCacheManager  upload");
