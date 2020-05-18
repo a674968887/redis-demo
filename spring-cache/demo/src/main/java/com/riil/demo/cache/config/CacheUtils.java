@@ -1,6 +1,5 @@
 package com.riil.demo.cache.config;
 
-import com.riil.demo.cache.config.dto.CacheNamespaceDto;
 import com.riil.demo.cache.config.dto.CachePropertisDto;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
@@ -9,7 +8,6 @@ import org.springframework.data.redis.cache.RedisCacheConfiguration;
 
 import java.time.Duration;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -36,13 +34,8 @@ public class CacheUtils {
                                                 final CachePropertisDto cachePropertisDto) {
         System.out.println("ehcacheNamespace");
         System.out.println(cachePropertisDto);
-        List<CacheNamespaceDto> namespace = cachePropertisDto.getNamespace();
-        for (int i = 0; i < namespace.size(); i++) {
-            CacheNamespaceDto cacheNamespaceConfs = namespace.get(i);
-            Cache user = new Cache(new CacheConfiguration(cacheNamespaceConfs.getName(), cacheNamespaceConfs.getTtl())
-                    .overflowToDisk(true));
-            cacheManager.addCache(user);
-        }
+        cachePropertisDto.getNamespace().forEach(namespace -> cacheManager.addCache(new Cache(new CacheConfiguration(namespace.getName(), namespace.getTtl())
+                .overflowToDisk(true))));
         return cacheManager;
     }
 
@@ -56,13 +49,7 @@ public class CacheUtils {
             final RedisCacheConfiguration redisCacheConfiguration, final CachePropertisDto cachePropertisDto) {
         Map<String, RedisCacheConfiguration> configMap = new HashMap<>();
         // 对每个缓存名称应用不同的配置，自定义过期时间
-        List<CacheNamespaceDto> namespace = cachePropertisDto.getNamespace();
-        for (int i = 0; i < namespace.size(); i++) {
-            CacheNamespaceDto cacheNamespaceConfs = namespace.get(i);
-            String name = cacheNamespaceConfs.getName();
-            Integer ttl = cacheNamespaceConfs.getTtl();
-            configMap.put(name, redisCacheConfiguration.entryTtl(Duration.ofSeconds(ttl)));
-        }
+        cachePropertisDto.getNamespace().forEach(namespace -> configMap.put(namespace.getName(), redisCacheConfiguration.entryTtl(Duration.ofSeconds(namespace.getTtl()))));
         return configMap;
     }
 
